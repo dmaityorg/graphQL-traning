@@ -1,12 +1,14 @@
-const { GraphQLServer } = require('graphql-yoga');
-const path = require('path');
+const { ApolloServer } = require('apollo-server');
+const typeDefs = require('./typeDefs/user');
+const resolvers = require('./resolvers/users');
+const models = require('./models');
 
-const userResolvers = require('./resolvers/users');
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: { models }
+})
 
-const server = new GraphQLServer({
-    typeDefs: path.resolve(__dirname, 'typeDefs', 'user.graphql'),
-    resolvers: userResolvers
-});
-
-server.start();
-
+server
+  .listen()
+  .then(({ url }) => console.log('Server is running on localhost:4000'))
