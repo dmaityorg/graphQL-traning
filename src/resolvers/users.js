@@ -4,7 +4,6 @@ module.exports = {
   Query: {
     users: () => { return User.findAll() },
     user: (_, { id }) => { return User.findOne({ where: { id } }) },
-    hello: () => { return "Hello World" },
   },
   Mutation: {
     createUser: (_, { first_name, last_name, email, address }) => { return User.create({ first_name, last_name, email, address }) },

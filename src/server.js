@@ -2,8 +2,8 @@ const connect = require('connect');
 const { ApolloServer } = require('apollo-server-express');
 const query = require('qs-middleware');
 const express = require("express")
-const typeDefs = require('./typeDefs/user');
-const resolvers = require('./resolvers/users');
+const typeDefs = require('./typeDefs/index');
+const resolvers = require('./resolvers/index');
 const models = require('./models');
 
 const server = new ApolloServer({
