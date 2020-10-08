@@ -1,4 +1,7 @@
-const { ApolloServer } = require('apollo-server');
+const connect = require('connect');
+const { ApolloServer } = require('apollo-server-express');
+const query = require('qs-middleware');
+const express = require("express")
 const typeDefs = require('./typeDefs/user');
 const resolvers = require('./resolvers/users');
 const models = require('./models');
@@ -8,7 +11,13 @@ const server = new ApolloServer({
   resolvers,
   context: { models }
 })
-
-server
-  .listen()
-  .then(({ url }) => console.log('Server is running on localhost:4000'))
+ 
+const app = connect();
+const path = '/graphql';
+ 
+app.use(query());
+server.applyMiddleware({ app, path });
+ 
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+);
