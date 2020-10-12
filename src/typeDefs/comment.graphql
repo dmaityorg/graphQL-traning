@@ -1,0 +1,12 @@
+type Comment {
+    id: ID
+    description: String
+}
+
+type Query {
+    getAllComments: [Comment]
+}
+
+type Mutation {
+    addComment(description: String, post_id: Int): Comment
+}

@@ -6,6 +6,7 @@ type Post {
     publish_date: String
     user_id: Int
     user: User!
+    comments: [Comment!]!
 }
 
 type Query {

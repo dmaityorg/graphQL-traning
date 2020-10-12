@@ -7,6 +7,10 @@ module.exports = {
   Post: {
     async user(user) {
       return user.getUser()
+    },
+
+    async comments(comment) {
+      return comment.getComments();
     }
   },
 };
