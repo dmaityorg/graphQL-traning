@@ -5,6 +5,7 @@ type Post {
     description: String
     publish_date: String
     user_id: Int
+    user: User!
 }
 
 type Query {

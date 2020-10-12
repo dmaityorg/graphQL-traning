@@ -4,6 +4,7 @@ type User {
     last_name: String
     email: String
     address: String
+    posts: [Post!]!
 }
 
 type Query {

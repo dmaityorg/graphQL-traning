@@ -7,7 +7,7 @@ module.exports = {
     },
 
     getPost: async(_, { id }, { models }) => {
-      return await models.post.findByPk({ id })
+      return await models.post.findByPk(id);
     },
   },
   Mutation: {

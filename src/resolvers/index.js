@@ -1,7 +1,12 @@
-const path = require('path');
-const { mergeResolvers } = require('@graphql-tools/merge');
-const { loadFilesSync } = require('@graphql-tools/load-files');
-
-const resolversArray = loadFilesSync(path.join(__dirname, './'));
-
-module.exports = mergeResolvers(resolversArray);
+module.exports = {
+  User: {
+    async posts(post) {
+      return post.getPosts();
+    }
+  },
+  Post: {
+    async user(user) {
+      return user.getUser()
+    }
+  },
+};
