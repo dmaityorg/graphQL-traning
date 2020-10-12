@@ -11,8 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      user.hasMany(models.post)
     }
+    
   };
+
   user.init({
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
@@ -22,5 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'user',
   });
+
   return user;
 };

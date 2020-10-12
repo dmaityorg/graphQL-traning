@@ -19,5 +19,5 @@ app.use(query());
 server.applyMiddleware({ app, path });
  
 app.listen({ port: 4000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  console.log(`GraphQL Server is ready at http://localhost:4000${server.graphqlPath}`)
 );
