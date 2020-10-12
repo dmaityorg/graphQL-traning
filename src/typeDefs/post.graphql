@@ -8,8 +8,8 @@ type Post {
 }
 
 type Query {
-    posts: [Post]
-    post(id: ID): Post
+    getAllPosts: [Post]
+    getPost(id: ID): Post
 }
 
 type Mutation {

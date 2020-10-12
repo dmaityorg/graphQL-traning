@@ -1,11 +1,18 @@
-const Post = require("../models").post;
+const models = require("../models");
 
 module.exports = {
   Query: {
-    posts: () => { return Post.findAll() },
-    post: (_, { id }) => { return Post.findOne({ where: { id } }) },
+    getAllPosts: async (_, args, { models }) => { 
+      return await models.post.findAll();
+    },
+
+    getPost: async(_, { id }, { models }) => {
+      return await models.post.findByPk({ id })
+    },
   },
   Mutation: {
-    createPost: (_, { title, description, publish_date }) => { return Post.create({ title, description, publish_date }) },
+    createPost: async (_, { title, description, publish_date, user_id }, { models }) => {
+      return await models.post.create({ title, description, publish_date, user_id });
+    },
   }
 }

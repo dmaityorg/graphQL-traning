@@ -7,8 +7,8 @@ type User {
 }
 
 type Query {
-    users: [User]
-    user(id: ID): User
+    getAllUsers: [User]
+    getUser(id: ID): User
 }
 
 type Mutation {
