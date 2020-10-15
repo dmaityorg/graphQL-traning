@@ -13,4 +13,9 @@ module.exports = {
       return comment.getComments();
     }
   },
+  Comment: {
+    async post(post) {
+      return post.getPost();
+    }
+  },
 };

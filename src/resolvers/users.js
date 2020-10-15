@@ -15,9 +15,9 @@ module.exports = {
   Mutation: {
     createUser: async (_, { first_name, last_name, email, address }, { models }) => {
       const user = await models.user.findOne({ where: { email } });
-      
+      if (!user){
         return await models.user.create({ first_name, last_name, email, address });
-      
+      }
     },
 
     updateUser: async(_, { id, first_name, last_name, email, address }, { models }) => {

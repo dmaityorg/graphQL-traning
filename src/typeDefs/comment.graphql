@@ -1,10 +1,12 @@
 type Comment {
     id: ID
     description: String
+    post: Post!
 }
 
 type Query {
     getAllComments: [Comment]
+    getComment(id: ID): Comment
 }
 
 type Mutation {
