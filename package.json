@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/server.js",
-    "test": "mocha ./src/test/*.test.js --timeout 10000"
+    "test": "mocha ./src/test/*.test.js --timeout 10000",
+    "coverage": "nyc --reporter=html mocha ./src/test/*.test.js --timeout 10000 --exit",
+    "check-coverage": "nyc check-coverage --lines 60 --branches 1 --statements 1 --functions 10"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +27,7 @@
     "graphql-yoga": "^1.18.3",
     "lodash": "^4.17.20",
     "mocha": "^8.1.3",
+    "nyc": "^15.1.0",
     "pg": "^8.4.0",
     "pg-hstore": "^2.3.3",
     "qs-middleware": "^1.0.3",

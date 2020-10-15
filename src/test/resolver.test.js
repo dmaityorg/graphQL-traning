@@ -50,9 +50,10 @@ describe("Curd operations", function () {
 
     it("Create users", function (done) {
       requester.post("/graphql")
-        .send({ query: 'mutation{ createUser(first_name: "Celestial", last_name: "system", email: "dmaity@gmail.com") { id first_name last_name } }' })
+        .send({ query: 'mutation{ createUser(first_name: "Celestial", last_name: "system", email: "dmaity") { id first_name last_name } }' })
         .end((err, res) => {
           if (err) return done(err);
+          console.log(res.body)
           res.body.data.createUser.should.have.property("id");
           res.body.data.createUser.should.not.have.property("email");
           res.body.data.createUser.should.have.property("last_name");
